@@ -63,6 +63,21 @@ public class Loader {
 		return obj;	
 	}
 	
+	public Class<?> loadPluginDescription(String descriptionName) {	
+		Class<?> obj=null;
+		try {
+			Iterator<IDesc> it=initialDescriptionList.iterator();
+			while (it.hasNext()){
+				Desc element=(Desc)it.next();
+				if(element.getName().equals(descriptionName))
+					obj = Class.forName(element.getClassName());
+			}	
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return obj;	
+	}
+	
 	public static HashSet<IDesc> getListeInitialDescription() {
 		return initialDescriptionList;
 	}
