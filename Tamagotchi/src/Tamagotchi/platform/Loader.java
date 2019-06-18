@@ -43,24 +43,24 @@ public class Loader {
 		HashSet<IDesc> descriptionChoixList=new HashSet<IDesc>();
 		Iterator<IDesc> it=initialDescriptionList.iterator();
 		while (it.hasNext()){
-				Desc element=(Desc)it.next();
-				String strInitial=element.getInterfaceName();
-				int indexInitial=strInitial.lastIndexOf('.') + 1;
-				String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
-					if (interfaceValue.equals(paramInterface))
-						descriptionChoixList.add(element);
-				}
+			Desc element=(Desc)it.next();
+			String strInitial=element.getInterfaceName();
+			int indexInitial=strInitial.lastIndexOf('.') + 1;
+			String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
+			if (interfaceValue.equals(paramInterface))
+				descriptionChoixList.add(element);
+		}
 		return descriptionChoixList;
 	}
 	
 	public Class<?> loadPluginDescription(Desc description) {	
-		 Class<?> obj=null;
-			try {
-				obj = Class.forName(description.getClassName());
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			return obj;	
+		Class<?> obj=null;
+		try {
+			obj = Class.forName(description.getClassName());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return obj;	
 	}
 	
 	public static HashSet<IDesc> getListeInitialDescription() {
