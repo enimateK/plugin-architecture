@@ -33,6 +33,7 @@ public class Loader {
 						description.getPropertyList().put(param,value);
 						s=br.readLine();
 					}
+					description.setState("Load");
 					initialDescriptionList.add(description);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -46,6 +47,7 @@ public class Loader {
 		Iterator<IDesc> it=initialDescriptionList.iterator();
 		while (it.hasNext()){
 			Desc element=(Desc)it.next();
+			element.setState("Read");
 			String strInitial=element.getInterfaceName();
 			int indexInitial=strInitial.lastIndexOf('.') + 1;
 			String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
@@ -75,10 +77,14 @@ public class Loader {
 				if(element.getName().equals(descriptionName)) {
 					obj = Class.forName(element.getClassName());
 					instantiateObj = obj.newInstance();
+					element.setState("Run");
+				}else {
+					element.setState("Fail");
 				}
 			}	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			
 		}
 		return instantiateObj;	
 	}

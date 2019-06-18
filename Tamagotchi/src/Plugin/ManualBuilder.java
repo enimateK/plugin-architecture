@@ -14,9 +14,9 @@ public class ManualBuilder implements IBuilder {
 		p.setName("CasDe");
 		p.setFirstName("Test");
 		p.setDead(false);
-		p.setCalories(9800);
-		p.setSleep(9800);
-		p.setWc(9800);
+		p.setCalories(3000);
+		p.setSleep(3000);
+		p.setWc(3000);
 		return p;
 	}
 
