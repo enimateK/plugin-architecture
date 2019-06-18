@@ -1,5 +1,10 @@
 package Plugin;
 
+
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
 import Tamagotchi.Person;
 
 public class JsonDisplay {
@@ -8,14 +13,28 @@ public class JsonDisplay {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String affichage(Person perso) {
+	public String affichage(Person perso) throws IOException {
 		String infoPerso = null;
-		infoPerso = perso.getName() + " " + perso.getFirstName() + " : ";
-		if (perso.getDead() == false) {
-			infoPerso +="calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiène : " + perso.getWc();
-		}else {
-			System.out.println("est mort !");
+		File donneesPerso=new File("../out/"+perso.getName()+perso.getFirstName()+".json");
+		donneesPerso.createNewFile();
+		FileWriter saveDonnees=new FileWriter(donneesPerso);
+		try 
+		{	
+			saveDonnees.write("{\n" );
+			saveDonnees.write(
+				"\"name\": " + perso.getName()+"\n"+
+				"\"firstName\"" + perso.getFirstName()+"\n"+
+				"\"dead\""+perso.getDead()+"\n"+
+				"\"calories\""+perso.getCalories()+"\n"+
+				"\"sleep\""+perso.getSleep()+"\n"+
+				"\"wc\""+perso.getWc()+"\n"+
+				"}");
+		}catch (Exception e) {
+			 System.out.println("Impossible de creer le fichier");
 		}
-		return infoPerso;		
+		finally {
+			saveDonnees.close();
+		}
+	return null;
 	}
 }
