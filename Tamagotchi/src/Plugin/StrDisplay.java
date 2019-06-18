@@ -12,11 +12,9 @@ public class StrDisplay implements IDisplay {
 	public String affichage(Person perso) {
 		String infoPerso = null;
 		infoPerso = perso.getName() + " " + perso.getFirstName() + " : ";
-		if (perso.getDead() == false) {
-			infoPerso +="calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiène : " + perso.getWc();
-		}else {
-			System.out.println("est mort !");
-		}
+		infoPerso +="calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiène : " + perso.getWc();
+		if (perso.getDead() == true)
+			infoPerso +="est mort !";
 		return infoPerso;		
 	}
 
