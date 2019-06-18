@@ -14,7 +14,7 @@ public class StrDisplay implements IDisplay {
 		infoPerso = perso.getName() + " " + perso.getFirstName() + " : ";
 		infoPerso +="calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiène : " + perso.getWc();
 		if (perso.getDead() == true)
-			infoPerso +="est mort !";
+			infoPerso +=" est mort !";
 		return infoPerso;		
 	}
 
