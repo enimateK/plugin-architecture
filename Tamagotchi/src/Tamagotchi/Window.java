@@ -1,7 +1,5 @@
 package Tamagotchi;
 
-import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,8 +15,6 @@ public class Window extends JFrame {
 		this.setSize(400, 800);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    
-	    pan.setBackground(Color.ORANGE);        
 	    this.setContentPane(pan);     
 	    
 	    pan.add(eatButton);
