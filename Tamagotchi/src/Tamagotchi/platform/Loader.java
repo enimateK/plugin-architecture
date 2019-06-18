@@ -1,4 +1,4 @@
-package Tamagotchi;
+package Tamagotchi.platform;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,15 +22,14 @@ public class Loader {
 			} else {
 				try {
 					Desc description=new Desc();
-					FileReader fichier= new FileReader(file);
-					BufferedReader br = new BufferedReader(fichier);
-					String str=br.readLine();
-					while (str != null){
-						int index=str.indexOf('=');
-						String param=str.substring(0,index);
-						String value=str.substring(index+1,str.length());
+					BufferedReader br = new BufferedReader(new FileReader(file));
+					String s=br.readLine();
+					while (s != null){
+						int index=s.indexOf('=');
+						String param=s.substring(0,index);
+						String value=s.substring(index+1,s.length());
 						description.getPropertyList().put(param,value);
-						str=br.readLine();
+						s=br.readLine();
 					}
 					initialDescriptionList.add(description);
 				} catch (IOException e) {
@@ -54,10 +53,10 @@ public class Loader {
 		return descriptionChoixList;
 	}
 	
-	public Class<?> loadPluginDescription( Desc description) {	
+	public Class<?> loadPluginDescription(Desc description) {	
 		 Class<?> obj=null;
 			try {
-				obj = Class.forName( description.getClassName());
+				obj = Class.forName(description.getClassName());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}

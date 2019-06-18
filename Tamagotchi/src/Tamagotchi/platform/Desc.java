@@ -1,4 +1,4 @@
-package Tamagotchi;
+package Tamagotchi.platform;
 
 import java.util.HashMap;
 
