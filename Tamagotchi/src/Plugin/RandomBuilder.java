@@ -16,7 +16,7 @@ public class RandomBuilder implements IBuilder {
 		double calRandom = Math.random()*10000;
 		double sleepRandom = Math.random()*10000;
 		double WcRandom = Math.random()*10000;
-		
+
 		Integer num = (int) nomrandom;
 		p.setName("nomRandom" + num);
 		p.setFirstName("prenomRandom" + num);
