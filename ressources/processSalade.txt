@@ -1,0 +1,4 @@
+Class=com.Tamagotchi.MangerSalade
+Name=Manger Salade
+Interface=com.Tamagotchi.IProcess
+Methode=change

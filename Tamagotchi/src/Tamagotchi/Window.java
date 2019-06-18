@@ -74,10 +74,15 @@ public class Window extends JFrame implements ActionListener {
 		if(source == buildButton){
 			String selected = builderList.getSelectedItem().toString();
 			try {
-				Class<?> cl = Class.forName("Plugin.RandomIn");
+				Class<?> cl = Class.forName("Plugin.RandomBuilder");
 				IBuilder builder = (IBuilder) cl.newInstance();
-				Person person = builder.creationAleatoire();
+				Person person = builder.creation();
 				JOptionPane.showMessageDialog(null, person.toString());
+				Class<?> cl2 = Class.forName("Plugin.StrDisplay");
+				IDisplay display = (IDisplay) cl2.newInstance();
+				String displayString = display.affichage(person);
+				JOptionPane.showMessageDialog(null,displayString);
+
 			} catch (ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

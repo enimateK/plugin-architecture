@@ -1,0 +1,4 @@
+Class=com.Tamagotchi.StrDisplay
+Name=Affichage
+Interface=com.Tamagotchi.IDisplay
+Methode=affichage
