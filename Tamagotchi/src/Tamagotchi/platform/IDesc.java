@@ -10,4 +10,6 @@ public interface IDesc {
 	
 	public String getName();
 	public String getMethodeName();
+	
+	public Boolean getAutorun();
 }

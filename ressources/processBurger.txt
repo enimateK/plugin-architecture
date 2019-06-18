@@ -1,4 +1,4 @@
-Class=com.Tamagotchi.MangerBurger
+Class=Plugin.MangerBurger
 Name=Manger Burger
 Interface=com.Tamagotchi.IProcess
 Methode=change
