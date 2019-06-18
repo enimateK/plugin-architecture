@@ -36,10 +36,10 @@ public class Loader {
 					e.printStackTrace();
 				}
 			}
-		}
+		}		
 	}
 	
-	public HashSet<IDesc> getListePluginDescription(String paramInterface){
+	/*public HashSet<IDesc> getListePluginDescription(String paramInterface){
 		HashSet<IDesc> descriptionChoixList=new HashSet<IDesc>();
 		Iterator<IDesc> it=initialDescriptionList.iterator();
 		while (it.hasNext()){
@@ -47,11 +47,11 @@ public class Loader {
 			String strInitial=element.getInterfaceName();
 			int indexInitial=strInitial.lastIndexOf('.') + 1;
 			String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
-			if (interfaceValue.equals(paramInterface))
-				descriptionChoixList.add(element);
+				if (interfaceValue.equals(paramInterface))
+					descriptionChoixList.add(element);
 		}
 		return descriptionChoixList;
-	}
+	}*/
 	
 	public Class<?> loadPluginDescription(Desc description) {	
 		Class<?> obj=null;
