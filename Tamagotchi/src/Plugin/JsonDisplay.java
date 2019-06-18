@@ -1,14 +1,13 @@
 package Plugin;
 
-import Tamagotchi.IDisplay;
 import Tamagotchi.Person;
 
-public class StrDisplay implements IDisplay {
+public class JsonDisplay {
 
-	public StrDisplay() {
+	public JsonDisplay() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public String affichage(Person perso) {
 		String infoPerso = null;
 		infoPerso = perso.getName() + " " + perso.getFirstName() + " : ";
@@ -19,5 +18,4 @@ public class StrDisplay implements IDisplay {
 		}
 		return infoPerso;		
 	}
-
 }

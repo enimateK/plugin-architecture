@@ -18,5 +18,4 @@ public class MangerSalade implements IProcess{
 			p.setDead(true);
 		}	
 	}
-
 }
