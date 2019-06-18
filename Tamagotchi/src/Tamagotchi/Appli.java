@@ -7,30 +7,26 @@ import Tamagotchi.platform.IDesc;
 import Tamagotchi.platform.Loader;
 
 public class Appli {
-<<<<<<< HEAD
-	public static void main(String[] args) {	
-		String[] builders =  {"RandomIn"};
-		String[] processes = {"MangerSalade", "Sieste"};
-		String[] displays = {"StrOut"};
-		
-		new Window(builders, processes, displays);
-
-=======
 	public static void main(String[] args) {
 		Loader loader = new Loader();
 		
-		ArrayList<Class<?>> toto = new ArrayList<Class<?>>();
->>>>>>> 0d0ca94933e7732a47a2f052d7e2a8a4913a9b65
-		
-		//Liste les plugins en fonction de l'interface ..
+		ArrayList<String> processes = new ArrayList<String>();
+		ArrayList<String> builders = new ArrayList<String>();
+		ArrayList<String> displays = new ArrayList<String>();
+
 		for(Desc d : loader.getListePluginDescription("IProcess")) {
-			//normalement 2 ..
-			Class<?> test = loader.loadPluginDescription(d);
-			toto.add(test);
+			processes.add(d.getName());
 		}
-		//donc dans toto on a les class qui implement IProcess
-		System.out.println(toto.toString());
 		
-		new Window();
+		for(Desc d : loader.getListePluginDescription("IBuilder")) {
+			builders.add(d.getName());
+		}
+
+		for(Desc d : loader.getListePluginDescription("IDisplay")) {
+			Class<?> test = loader.loadPluginDescription(d);
+			displays.add(d.getName());
+		}
+				
+		new Window(builders, processes, displays);
 	}
 }

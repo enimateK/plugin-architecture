@@ -2,6 +2,7 @@ package Tamagotchi;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,11 +19,11 @@ public class Window extends JFrame implements ActionListener {
     private JComboBox<Object> builderList;
 	private JComboBox<Object> displayerList;
 	private JComboBox<Object> processList;
-	private String[] builders;
-	private String[] processes;
-	private String[] displays;
+	private ArrayList<String> builders;
+	private ArrayList<String> processes;
+	private ArrayList<String> displays;
 	
-	public Window(String[] builders, String[] processes, String[] displays) {
+	public Window(ArrayList<String> builders, ArrayList<String> processes, ArrayList<String> displays) {
 		super();
 		
 		this.builders = builders;
@@ -45,9 +46,9 @@ public class Window extends JFrame implements ActionListener {
 		 JLabel displayersLabel = new JLabel("Displayers :");
 		 JLabel processersLabel = new JLabel("Processers :");
 		    
-		 builderList = new JComboBox<Object>(builders);
-		 displayerList = new JComboBox<Object>(processes);
-		 processList = new JComboBox<Object>(displays);
+		 builderList = new JComboBox<Object>(builders.toArray());
+		 displayerList = new JComboBox<Object>(processes.toArray());
+		 processList = new JComboBox<Object>(displays.toArray());
 		    
 		 pan.add(buildersLabel);
 		 pan.add(builderList);
@@ -84,13 +85,10 @@ public class Window extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null,displayString);
 
 			} catch (ClassNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (InstantiationException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (IllegalAccessException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		} else if(source == processButton){
