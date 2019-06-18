@@ -1,4 +1,4 @@
-Class=com.Tamagotchi.MangerSalade
+Class=Plugin.MangerSalade
 Name=Manger Salade
 Interface=com.Tamagotchi.IProcess
 Methode=change
