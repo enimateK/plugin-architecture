@@ -1,0 +1,4 @@
+Class=com.Tamagotchi.ManualBuilder
+Name=Creation manuelle
+Interface=com.Tamagotchi.IBuilder
+Methode=creation

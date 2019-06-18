@@ -1,0 +1,4 @@
+Class=com.Tamagotchi.MangerBurger
+Name=Manger Burger
+Interface=com.Tamagotchi.IProcess
+Methode=change
