@@ -3,14 +3,14 @@ package Plugin;
 import Tamagotchi.IBuilder;
 import Tamagotchi.Person;
 
-public class RandomIn implements IBuilder {
+public class RandomBuilder implements IBuilder {
 
-	public RandomIn() {
+	public RandomBuilder() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public Person creationAleatoire() {
+	public Person creation() {
 		Person p = new Person();
 		Integer num = (int)Math.random()*1000;
 		p.setName("nomRandom" + num);

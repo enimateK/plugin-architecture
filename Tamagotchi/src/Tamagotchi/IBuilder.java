@@ -2,5 +2,5 @@ package Tamagotchi;
 
 public interface IBuilder {
 
-	public Person creationAleatoire();
+	public Person creation();
 }

@@ -3,9 +3,9 @@ package Plugin;
 import Tamagotchi.IDisplay;
 import Tamagotchi.Person;
 
-public class StrOut implements IDisplay {
+public class StrDisplay implements IDisplay {
 
-	public StrOut() {
+	public StrDisplay() {
 		// TODO Auto-generated constructor stub
 	}
 	

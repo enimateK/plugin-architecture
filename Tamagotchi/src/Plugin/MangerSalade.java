@@ -16,9 +16,7 @@ public class MangerSalade implements IProcess{
 		}
 		if(p.getCalories() > 10000) {
 			p.setDead(true);
-		}
-		
-		
+		}	
 	}
 
 }
