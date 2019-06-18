@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import Tamagotchi.IDisplay;
+
 public class Loader {
 
 	private static HashSet<IDesc> initialDescriptionList=new HashSet<IDesc>();
@@ -63,19 +65,22 @@ public class Loader {
 		return obj;	
 	}
 	
-	public Class<?> loadPluginDescription(String descriptionName) {	
+	public Object loadPluginDescription(String descriptionName) throws InstantiationException, IllegalAccessException {	
 		Class<?> obj=null;
+		Object instantiateObj = null;
 		try {
 			Iterator<IDesc> it=initialDescriptionList.iterator();
 			while (it.hasNext()){
 				Desc element=(Desc)it.next();
-				if(element.getName().equals(descriptionName))
+				if(element.getName().equals(descriptionName)) {
 					obj = Class.forName(element.getClassName());
+					instantiateObj = obj.newInstance();
+				}
 			}	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return obj;	
+		return instantiateObj;	
 	}
 	
 	public static HashSet<IDesc> getListeInitialDescription() {

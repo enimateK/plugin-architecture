@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Tamagotchi.platform.Loader;
+
 public class Window extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel pan = new JPanel();
@@ -22,6 +24,7 @@ public class Window extends JFrame implements ActionListener {
 	private ArrayList<String> builders;
 	private ArrayList<String> processes;
 	private ArrayList<String> displays;
+	private Person person;
 	
 	public Window(ArrayList<String> builders, ArrayList<String> processes, ArrayList<String> displays) {
 		super();
@@ -47,8 +50,8 @@ public class Window extends JFrame implements ActionListener {
 		 JLabel processersLabel = new JLabel("Processers :");
 		    
 		 builderList = new JComboBox<Object>(builders.toArray());
-		 displayerList = new JComboBox<Object>(processes.toArray());
-		 processList = new JComboBox<Object>(displays.toArray());
+		 displayerList = new JComboBox<Object>(displays.toArray());
+		 processList = new JComboBox<Object>(processes.toArray());
 		    
 		 pan.add(buildersLabel);
 		 pan.add(builderList);
@@ -72,27 +75,37 @@ public class Window extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		Loader loader = new Loader();
 		if(source == buildButton){
-			String selected = builderList.getSelectedItem().toString();
+			String selectedBuilder = builderList.getSelectedItem().toString();
+			
 			try {
-				Class<?> cl = Class.forName("Plugin.RandomBuilder");
-				IBuilder builder = (IBuilder) cl.newInstance();
-				Person person = builder.creation();
-				JOptionPane.showMessageDialog(null, person.toString());
-				Class<?> cl2 = Class.forName("Plugin.StrDisplay");
-				IDisplay display = (IDisplay) cl2.newInstance();
+				IBuilder builder = (IBuilder) loader.loadPluginDescription(selectedBuilder);
+				person = builder.creation();
+				String selectedDisplay = displayerList.getSelectedItem().toString();
+				
+				IDisplay display = (IDisplay) loader.loadPluginDescription(selectedDisplay);
 				String displayString = display.affichage(person);
 				JOptionPane.showMessageDialog(null,displayString);
-
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
-			} catch (InstantiationException e1) {
-				e1.printStackTrace();
-			} catch (IllegalAccessException e1) {
-				e1.printStackTrace();
+			} catch (InstantiationException | IllegalAccessException e2) {
+				e2.printStackTrace();
 			}
 		} else if(source == processButton){
-			String selected = processList.getSelectedItem().toString();
+			String selectedProcess = processList.getSelectedItem().toString();
+			
+			try {
+				if (person != null) {
+					IProcess process = (IProcess) loader.loadPluginDescription(selectedProcess);
+					process.change(person);
+					String selectedDisplay = displayerList.getSelectedItem().toString();
+					
+					IDisplay display = (IDisplay) loader.loadPluginDescription(selectedDisplay);
+					String displayString = display.affichage(person);
+					JOptionPane.showMessageDialog(null,displayString);
+				}
+			} catch (InstantiationException | IllegalAccessException e2) {
+				e2.printStackTrace();
+			}
 		}
 	}
 }
