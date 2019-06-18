@@ -17,17 +17,17 @@ public class Desc implements IDesc {
 
 	@Override
 	public String getClassName() {
-		return propertyList.get(Constantes.p_class);
+		return propertyList.get(Constantes.CLASS);
 	}
 
 	@Override
 	public String getInterfaceName() {
-		return propertyList.get(Constantes.p_interface);
+		return propertyList.get(Constantes.INTERFACE);
 	}
 
 	@Override
 	public String getName() {
-		return propertyList.get(Constantes.p_nom);
+		return propertyList.get(Constantes.NAME);
 	}
 	
 	public void setPropertyList( HashMap<String,String> propertyList) {
@@ -36,6 +36,6 @@ public class Desc implements IDesc {
 
 	@Override
 	public String getMethodeName() {
-		return propertyList.get(Constantes.p_methode);
+		return propertyList.get(Constantes.METHODE);
 	}
 }

@@ -12,7 +12,7 @@ public class Loader {
 	private static HashSet<IDesc> initialDescriptionList=new HashSet<IDesc>();
 	
 	public Loader(){
-		loadAllPluginDescription(Constantes.folder);
+		loadAllPluginDescription(Constantes.FOLDER);
 	}
 	
 	public  void loadAllPluginDescription(final File folder){
