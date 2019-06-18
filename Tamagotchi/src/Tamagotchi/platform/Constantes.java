@@ -10,5 +10,5 @@ public class Constantes {
 	public final static String INTERFACE="Interface";
 	public final static String NAME="Name";
 	public final static String METHODE="Methode";
-	
+	public final static String AUTORUN="Autorun";
 }

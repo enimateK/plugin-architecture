@@ -15,7 +15,7 @@ public class Loader {
 		loadAllPluginDescription(Constantes.FOLDER);
 	}
 	
-	public  void loadAllPluginDescription(final File folder){
+	private  void loadAllPluginDescription(final File folder){
 		for (final File file : folder.listFiles()) {
 			if (file.isDirectory()) {
 				loadAllPluginDescription(file);
@@ -36,11 +36,11 @@ public class Loader {
 					e.printStackTrace();
 				}
 			}
-		}		
+		}
 	}
 	
-	/*public HashSet<IDesc> getListePluginDescription(String paramInterface){
-		HashSet<IDesc> descriptionChoixList=new HashSet<IDesc>();
+	public HashSet<Desc> getListePluginDescription(String paramInterface){
+		HashSet<Desc> descriptionChoixList=new HashSet<Desc>();
 		Iterator<IDesc> it=initialDescriptionList.iterator();
 		while (it.hasNext()){
 			Desc element=(Desc)it.next();
@@ -51,7 +51,7 @@ public class Loader {
 					descriptionChoixList.add(element);
 		}
 		return descriptionChoixList;
-	}*/
+	}
 	
 	public Class<?> loadPluginDescription(Desc description) {	
 		Class<?> obj=null;

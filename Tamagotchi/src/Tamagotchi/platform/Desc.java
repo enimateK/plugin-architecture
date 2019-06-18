@@ -38,4 +38,9 @@ public class Desc implements IDesc {
 	public String getMethodeName() {
 		return propertyList.get(Constantes.METHODE);
 	}
+
+	@Override
+	public Boolean getAutorun() {
+		return Boolean.parseBoolean(propertyList.get(Constantes.AUTORUN));
+	}
 }
