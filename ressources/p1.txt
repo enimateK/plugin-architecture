@@ -1,0 +1,4 @@
+Class=com.Tamagotchi.MangerBurger
+Name=MangerBurger
+Interface=com.Tamagotchi.IManger
+Methode=mangerBurger
