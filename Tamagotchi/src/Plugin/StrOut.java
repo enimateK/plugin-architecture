@@ -1,8 +1,11 @@
-package Tamagotchi;
+package Plugin;
 
-public class strOut implements IOut {
+import Tamagotchi.IDisplay;
+import Tamagotchi.Person;
 
-	public strOut() {
+public class StrOut implements IDisplay {
+
+	public StrOut() {
 		// TODO Auto-generated constructor stub
 	}
 	

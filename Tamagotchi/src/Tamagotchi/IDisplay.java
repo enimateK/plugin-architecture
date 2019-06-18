@@ -1,6 +1,6 @@
 package Tamagotchi;
 
-public interface IOut {
+public interface IDisplay {
 
 	public void affichage(Person perso);
 }
