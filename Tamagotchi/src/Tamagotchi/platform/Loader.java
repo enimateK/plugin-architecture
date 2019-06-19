@@ -33,8 +33,8 @@ public class Loader {
 						description.getPropertyList().put(param,value);
 						s=br.readLine();
 					}
-					description.setState("Load");
 					initialDescriptionList.add(description);
+					description.setState("Load");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -85,7 +85,6 @@ public class Loader {
 			}	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			
 		}
 		return instantiateObj;	
 	}

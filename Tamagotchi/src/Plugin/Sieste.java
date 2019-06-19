@@ -12,10 +12,10 @@ public class Sieste implements IProcess {
 	@Override
 	public void change(Person p) {
 		if(p.getDead() == false) {
-			if(p.getSleep() <= 500) {
+			if(p.getSleep() <= 1000) {
 				p.setSleep(0);
 			}else {
-				p.setSleep(p.getSleep() - 500);
+				p.setSleep(p.getSleep() - 1000);
 			}
 		}
 	}

@@ -11,10 +11,16 @@ public class Courir implements IProcess{
 
 	@Override
 	public void change(Person p) {
-		if (p.getDead() == false && p.getCalories()>=1000) {
-			p.setCalories(p.getCalories()-1000);
-		}else if (p.getCalories()<1000 && p.getDead() == false)
-			p.setCalories(0);
+		if (p.getDead() == false) {
+			 if(p.getCalories()>=1000) {
+					p.setCalories(p.getCalories()-1000);
+				}else {
+					p.setCalories(0);
+				}
+			 p.setSleep(p.getSleep()+500);
+			 if (p.getSleep()>10000)
+				 p.setDead(true);
+		}
 			
 		
 	}

@@ -1,0 +1,4 @@
+Class=Plugin.Courir
+Name=Courir
+Interface=com.Tamagotchi.IProcess
+Methode=change

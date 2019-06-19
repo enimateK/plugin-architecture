@@ -6,7 +6,7 @@ public class Desc implements IDesc {
 
 	private HashMap<String, String> propertyList;
 	
-	private String state; //Etat : Load / Read / Run / Fail 
+	private String state; //Etat : Load / Read / Run / Fail
 	
 	public String getState() {
 		return state;
