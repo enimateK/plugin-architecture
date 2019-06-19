@@ -18,6 +18,7 @@ public class Loader {
 	}
 	
 	private  void loadAllPluginDescription(final File folder){
+		initialDescriptionList.clear();
 		for (final File file : folder.listFiles()) {
 			if (file.isDirectory()) {
 				loadAllPluginDescription(file);
@@ -34,7 +35,7 @@ public class Loader {
 						s=br.readLine();
 					}
 					initialDescriptionList.add(description);
-					description.setState("Load");
+					description.setState("Loaded");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -47,13 +48,12 @@ public class Loader {
 		Iterator<IDesc> it=initialDescriptionList.iterator();
 		while (it.hasNext()){
 			Desc element=(Desc)it.next();
-			element.setState("Read");
 			String strInitial=element.getInterfaceName();
-			System.out.println(strInitial.toString());
 			int indexInitial=strInitial.lastIndexOf('.') + 1;
 			String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
-				if (interfaceValue.equals(paramInterface))
+				if (interfaceValue.equals(paramInterface)) {
 					descriptionChoixList.add(element);
+				}
 		}
 		return descriptionChoixList;
 	}
@@ -78,11 +78,9 @@ public class Loader {
 				if(element.getName().equals(descriptionName)) {
 					obj = Class.forName(element.getClassName());
 					instantiateObj = obj.newInstance();
-					element.setState("Run");
-				}else {
-					element.setState("Fail");
+					element.setState("Running");
 				}
-			}	
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

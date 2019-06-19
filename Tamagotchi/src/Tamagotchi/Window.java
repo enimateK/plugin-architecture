@@ -1,8 +1,10 @@
 package Tamagotchi;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,7 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
+import Tamagotchi.platform.Desc;
 import Tamagotchi.platform.Loader;
 
 public class Window extends JFrame implements ActionListener {
@@ -25,6 +32,7 @@ public class Window extends JFrame implements ActionListener {
 	private ArrayList<String> processes;
 	private ArrayList<String> displays;
 	private Person person;
+	private Loader loader = new Loader();
 	
 	public Window(ArrayList<String> builders, ArrayList<String> processes, ArrayList<String> displays) {
 		super();
@@ -38,7 +46,7 @@ public class Window extends JFrame implements ActionListener {
 	
 	private void build() {
 		this.setTitle("Super tamagotchi");
-		this.setSize(400, 800);
+		this.setSize(800, 800);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(buildContentPane());
@@ -52,7 +60,7 @@ public class Window extends JFrame implements ActionListener {
 		 builderList = new JComboBox<Object>(builders.toArray());
 		 displayerList = new JComboBox<Object>(displays.toArray());
 		 processList = new JComboBox<Object>(processes.toArray());
-		    
+		 pan.removeAll();
 		 pan.add(buildersLabel);
 		 pan.add(builderList);
 
@@ -62,15 +70,50 @@ public class Window extends JFrame implements ActionListener {
 		 pan.add(processersLabel);
 		 pan.add(processList);
 
+		 for( ActionListener al : buildButton.getActionListeners() ) {
+	    	buildButton.removeActionListener( al );
+		 }
+		 for( ActionListener al : processButton.getActionListeners() ) {
+			 processButton.removeActionListener( al );
+		 }
+
 		 buildButton.addActionListener(this);
 		 processButton.addActionListener(this);
 		 
 		 pan.add(buildButton);
 		 pan.add(processButton);
+			
+		 ArrayList<Desc> plugins = new ArrayList<Desc>();
+		
+		 for(Desc d : loader.getListePluginDescription("IProcess")) {
+			 plugins.add(d);
+		 }
+		
+		 for(Desc d : loader.getListePluginDescription("IBuilder")) {
+			 plugins.add(d);
+		 }
+		
+		 for(Desc d : loader.getListePluginDescription("IDisplay")) {
+			 plugins.add(d);
+		 }
+		 
+		 Object[][] pluginsArray = new Object[plugins.size()][2];
+		 int i = 0;
+		 for (Desc d : plugins) {
+			 pluginsArray[i][0] = d.getName();
+			 pluginsArray[i][1] = d.getState();
+			 i++;
+		 }
+		 String[] entetes = {"Plugin", "Etat"};
+		 
+		 JTable tableau = new JTable(pluginsArray, entetes);
+		 JScrollPane scroll= new JScrollPane(tableau); 
+		 
+		 pan.add(scroll);
 		 this.setContentPane(pan);
 		 this.setVisible(true);
 
-		 return pan;
+		 return pan;	
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -107,5 +150,6 @@ public class Window extends JFrame implements ActionListener {
 				e2.printStackTrace();
 			}
 		}
+		build();
 	}
 }
