@@ -11,11 +11,14 @@ public class StrDisplay implements IDisplay {
 	
 	public String affichage(Person perso) {
 		String infoPerso = null;
-		infoPerso = perso.getName() + " " + perso.getFirstName() + " : ";
-		infoPerso +="calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiène : " + perso.getWc();
-		if (perso.getDead() == true)
-			infoPerso +=" est mort !";
-		return infoPerso;		
+		infoPerso = perso.getName() + " " + perso.getFirstName() + " ";
+		if (perso.getDead() == true) {
+			infoPerso +=" est mort ! =( ";
+		} else {
+			infoPerso +=". ";
+		}
+		infoPerso +="Calories : " + perso.getCalories() + " sommeil : " + perso.getSleep() + " hygiene : " + perso.getWc();
+		return infoPerso;	
 	}
 
 }
