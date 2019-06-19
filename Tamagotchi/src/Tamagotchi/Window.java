@@ -82,7 +82,7 @@ public class Window extends JFrame implements ActionListener {
 		 
 		 pan.add(buildButton);
 		 pan.add(processButton);
-			
+		
 		 ArrayList<Desc> plugins = new ArrayList<Desc>();
 		
 		 for(Desc d : loader.getListePluginDescription("IProcess")) {

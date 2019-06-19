@@ -11,8 +11,8 @@ public class ManualBuilder implements IBuilder {
 	@Override
 	public Person creation() {
 		Person p = new Person();
-		p.setName("CasDe");
-		p.setFirstName("Test");
+		p.setName("Jean");
+		p.setFirstName("Paul");
 		p.setDead(false);
 		p.setCalories(3000);
 		p.setSleep(3000);
