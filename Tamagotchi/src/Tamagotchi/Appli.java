@@ -6,8 +6,8 @@ import Tamagotchi.platform.Desc;
 import Tamagotchi.platform.IDesc;
 import Tamagotchi.platform.Loader;
 
-public class Appli {
-	public static void main(String[] args) {
+public class Appli implements IAppli {
+	public void main(String[] args) {
 		Loader loader = new Loader();
 		
 		ArrayList<String> processes = new ArrayList<String>();

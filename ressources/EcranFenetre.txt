@@ -1,0 +1,5 @@
+Class=Tamagotchi.Appli
+Name=Application_fenetre
+Interface=com.Tamagotchi.IAppli
+Methode=main
+Autorun=true
