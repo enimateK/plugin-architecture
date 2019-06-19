@@ -8,7 +8,9 @@ import java.io.File;
 import Tamagotchi.Person;
 
 public class JsonDisplay {
-
+/*
+ * En cours de développement. Plugin non fonctionnel donc absent de ../ressources
+ * */
 	public JsonDisplay() {
 		// TODO Auto-generated constructor stub
 	}

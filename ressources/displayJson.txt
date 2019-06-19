@@ -1,4 +1,0 @@
-Class=Plugin.JsonDisplay
-Name=Export_Json
-Interface=com.Tamagotchi.IDisplay
-Methode=affichage
