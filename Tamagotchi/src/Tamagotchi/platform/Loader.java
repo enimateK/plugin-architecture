@@ -49,6 +49,7 @@ public class Loader {
 			Desc element=(Desc)it.next();
 			element.setState("Read");
 			String strInitial=element.getInterfaceName();
+			System.out.println(strInitial.toString());
 			int indexInitial=strInitial.lastIndexOf('.') + 1;
 			String  interfaceValue=strInitial.substring(indexInitial,strInitial.length());
 				if (interfaceValue.equals(paramInterface))
