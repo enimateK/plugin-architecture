@@ -1,0 +1,5 @@
+Class=Plugin.StrDisplay
+Name=Affichage
+Interface=com.Tamagotchi.IDisplay
+Methode=affichage
+Autorun=false
