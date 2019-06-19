@@ -24,7 +24,6 @@ public class Appli implements IAppli {
 		}
 
 		for(Desc d : loader.getListePluginDescription("IDisplay")) {
-			Class<?> test = loader.loadPluginDescription(d);
 			displays.add(d.getName());
 		}
 				
