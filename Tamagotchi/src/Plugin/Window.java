@@ -1,4 +1,4 @@
-package Tamagotchi;
+package Plugin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Tamagotchi.IBuilder;
+import Tamagotchi.IDisplay;
+import Tamagotchi.IProcess;
+import Tamagotchi.Person;
 import Tamagotchi.platform.Loader;
 
 public class Window extends JFrame implements ActionListener {

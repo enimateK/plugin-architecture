@@ -1,4 +1,4 @@
-Class=Tamagotchi.Appli
+Class=Plugin.Appli
 Name=Application_fenetre
 Interface=com.Tamagotchi.IAppli
 Methode=main

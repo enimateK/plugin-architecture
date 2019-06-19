@@ -1,7 +1,8 @@
-package Tamagotchi;
+package Plugin;
 
 import java.util.ArrayList;
 
+import Tamagotchi.IAppli;
 import Tamagotchi.platform.Desc;
 import Tamagotchi.platform.IDesc;
 import Tamagotchi.platform.Loader;
