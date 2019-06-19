@@ -7,7 +7,11 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 
+import javax.swing.JOptionPane;
+
+import Tamagotchi.IAppli;
 import Tamagotchi.IDisplay;
+import Tamagotchi.IProcess;
 
 public class Loader {
 
@@ -91,4 +95,24 @@ public class Loader {
 		return initialDescriptionList;
 	}
 	
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+		Loader loader = new Loader();
+		Integer chargementOK = 0;
+		Desc startAppli = null;
+		for(Desc d : loader.getListePluginDescription("IAppli")) {
+			if(d.getAutorun() == true) {
+				chargementOK ++;
+				startAppli = d;				
+			}
+		}
+		if(chargementOK == 0) { 
+			JOptionPane.showMessageDialog(null,"Vous n'avez pas d'application en autorun=true");
+	
+		}else if (chargementOK > 1){
+			JOptionPane.showMessageDialog(null,"Vous avez trop d'applications en autorun=true");
+		}else {
+			IAppli application = (IAppli)loader.loadPluginDescription(startAppli.getName());
+			application.main(null);
+		}
+	}
 }

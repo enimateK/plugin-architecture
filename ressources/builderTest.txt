@@ -2,3 +2,4 @@ Class=Plugin.ManualBuilder
 Name=Creation de test
 Interface=com.Tamagotchi.IBuilder
 Methode=creation
+Autorun=false
