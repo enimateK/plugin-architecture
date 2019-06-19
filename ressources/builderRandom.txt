@@ -1,0 +1,4 @@
+Class=Plugin.RandomBuilder
+Name=Creation de random
+Interface=com.Tamagotchi.IBuilder
+Methode=creation

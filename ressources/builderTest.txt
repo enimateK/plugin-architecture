@@ -1,4 +1,4 @@
 Class=Plugin.ManualBuilder
-Name=Creation Manuelle
+Name=Creation de test
 Interface=com.Tamagotchi.IBuilder
 Methode=creation

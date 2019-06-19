@@ -1,0 +1,4 @@
+Class=Plugin.Sieste
+Name=Sieste
+Interface=com.Tamagotchi.IProcess
+Methode=change
