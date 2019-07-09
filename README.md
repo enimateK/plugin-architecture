@@ -4,9 +4,7 @@ Application de Tamagotchi en architecture plugin
 
 Lancement de l’application :
 
-Nous n’avons pas pu créer de .jar, car l’application n’arrivait pas à trouver le dossier ressources contenant les plugins, n’ayant pas eu beaucoup de temps, nous n’avons pas trouvé de solution.
-
-Pour lancer l’application, il faut donc passer par Eclipse, importer le projet, désigner la classe Loader comme classe principale et cliquer sur Run.
+Pour lancer l’application, il faut passer par Eclipse, importer le projet, désigner la classe Loader comme classe principale et cliquer sur Run.
 
 
 Utilisation de l’application :
